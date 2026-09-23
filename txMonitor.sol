@@ -156,8 +156,10 @@ contract TransactionMonitor is AutomationCompatibleInterface {
         if(msg.value > flagThreshold) {
             stats.flaggedTx++;
         } else {stats.successTx++;
+}
 
-    }
+     stats.totalTx++;
+     stats.totalValue += msg.value;
     }
 
     function recordFailedTransfer(address recipient) public payable {
